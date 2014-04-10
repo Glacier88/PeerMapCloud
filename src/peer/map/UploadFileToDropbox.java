@@ -52,23 +52,6 @@ public class UploadFileToDropbox extends AsyncTask<Void, Void, Boolean> {
 			
 		}
 		
-        try {
-            tempFile = File.createTempFile("file", ".txt", tempDir);
-            fr = new FileWriter(tempFile);
-            fr.write("Sample text file created for demo purpose. You may use some other file format for your app ");
-            fr.close();
- 
-            FileInputStream fileInputStream = new FileInputStream(tempFile);
-            dropbox.putFile(path + "textfile.txt", fileInputStream,
-                    tempFile.length(), null, null);
-            tempFile.delete();
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DropboxException e) {
-            e.printStackTrace();
-        }
- 
         return false;
     }
  
