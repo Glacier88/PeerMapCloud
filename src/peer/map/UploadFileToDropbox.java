@@ -1,4 +1,4 @@
-package com.javatechig.dropboxsample;
+package peer.map;
  
 import java.io.File;
 import java.io.FileInputStream;

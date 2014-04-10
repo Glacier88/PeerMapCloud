@@ -1,6 +1,7 @@
-package com.javatechig.dropboxsample;
+package peer.map;
  
 import java.util.ArrayList;
+import peer.map.R;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
