@@ -29,12 +29,12 @@
         android:textStyle="bold" />
  
     <Button
-        android:id="@+id/list_files"
+        android:id="@+id/download_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="#176CEC"
-        android:text="List All Files"
+        android:text="Download File From Dropbox"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#fff"
         android:textStyle="bold" />

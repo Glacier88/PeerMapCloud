@@ -33,7 +33,7 @@ public class DropboxActivity extends Activity implements OnClickListener {
     private boolean isLoggedIn;
     private Button logIn;
     private Button uploadFile;
-    private Button listFiles;
+    private Button downloadFile;
     private LinearLayout container;
  
     @Override
@@ -45,8 +45,8 @@ public class DropboxActivity extends Activity implements OnClickListener {
         logIn.setOnClickListener(this);
         uploadFile = (Button) findViewById(R.id.upload_file);
         uploadFile.setOnClickListener(this);
-        listFiles = (Button) findViewById(R.id.list_files);
-        listFiles.setOnClickListener(this);
+        downloadFile = (Button) findViewById(R.id.download_file);
+        downloadFile.setOnClickListener(this);
         container = (LinearLayout) findViewById(R.id.container_files);
  
         loggedIn(false);
@@ -95,7 +95,7 @@ public class DropboxActivity extends Activity implements OnClickListener {
     public void loggedIn(boolean isLogged) {
         isLoggedIn = isLogged;
         uploadFile.setEnabled(isLogged);
-        listFiles.setEnabled(isLogged);
+        downloadFile.setEnabled(isLogged);
         logIn.setText(isLogged ? "Log out" : "Log in");
     }
  
@@ -128,12 +128,11 @@ public class DropboxActivity extends Activity implements OnClickListener {
             }
  
             break;
-        case R.id.list_files:
+        case R.id.download_file:
  
-            ListDropboxFiles list = new ListDropboxFiles(dropbox, FILE_DIR,
-                    handler);
-            list.execute();
- 
+        	DownloadFileFromDropbox download = new DownloadFileFromDropbox(this, dropbox,
+                    FILE_DIR);
+            download.execute();
             break;
         case R.id.upload_file:
             UploadFileToDropbox upload = new UploadFileToDropbox(this, dropbox,

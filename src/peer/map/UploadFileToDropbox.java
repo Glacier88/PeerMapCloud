@@ -30,10 +30,7 @@ public class UploadFileToDropbox extends AsyncTask<Void, Void, Boolean> {
  
     @Override
     protected Boolean doInBackground(Void... params) {
-        final File tempDir = context.getCacheDir();
-        File tempFile;
-        FileWriter fr;
-        
+
         try {
         File dir = Environment.getExternalStorageDirectory();
 		File file = new File(dir,"work.txt");
@@ -61,8 +58,7 @@ public class UploadFileToDropbox extends AsyncTask<Void, Void, Boolean> {
             Toast.makeText(context, "File Uploaded Sucesfully!",
                     Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(context, "Failed to upload file", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(context, "Failed to upload file", Toast.LENGTH_LONG).show();
         }
     }
 }
