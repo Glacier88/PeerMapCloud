@@ -33,7 +33,7 @@ public class DownloadFileFromDropbox extends AsyncTask<Void, Void, Boolean>{
     protected Boolean doInBackground(Void... params) {
     	
     	File dir = Environment.getExternalStorageDirectory();
-		File file = new File(dir,"work2.txt");
+		File file = new File(dir,"work2.csv");
   
         OutputStream out= null;
         
@@ -44,7 +44,7 @@ public class DownloadFileFromDropbox extends AsyncTask<Void, Void, Boolean>{
             e1.printStackTrace();
           }
         try {
-            DropboxFileInfo info = dropbox.getFile(path+"peermap.txt", null, out, null);
+            DropboxFileInfo info = dropbox.getFile(path+"peermap.csv", null, out, null);
             Log.i("DbExampleLog", "The file's rev is: " + info.getMetadata().rev);
             return true;
           } catch (DropboxException e) {

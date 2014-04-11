@@ -33,9 +33,9 @@ public class UploadFileToDropbox extends AsyncTask<Void, Void, Boolean> {
 
         try {
         File dir = Environment.getExternalStorageDirectory();
-		File file = new File(dir,"work.txt");
+		File file = new File(dir,"peermap.csv");
 		FileInputStream inputStream =new FileInputStream(file);
-		dropbox.putFile(path + "peermap.txt",inputStream,
+		dropbox.putFile(path + "peermap.csv",inputStream,
                 file.length(), null, null);
         return true;	
 			
