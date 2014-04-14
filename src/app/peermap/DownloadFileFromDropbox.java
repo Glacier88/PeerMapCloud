@@ -1,4 +1,4 @@
-package peer.map;
+package app.peermap;
 
 import java.io.File;
 import java.io.FileOutputStream;

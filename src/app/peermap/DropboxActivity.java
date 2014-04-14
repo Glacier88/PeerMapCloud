@@ -1,7 +1,7 @@
-package peer.map;
+package app.peermap;
  
 import java.util.ArrayList;
-import peer.map.R;
+import app.peermap.R;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -34,6 +34,8 @@ public class DropboxActivity extends Activity implements OnClickListener {
     private Button logIn;
     private Button uploadFile;
     private Button downloadFile;
+    //List files
+    private Button listFiles;
     private LinearLayout container;
  
     @Override
@@ -47,6 +49,9 @@ public class DropboxActivity extends Activity implements OnClickListener {
         uploadFile.setOnClickListener(this);
         downloadFile = (Button) findViewById(R.id.download_file);
         downloadFile.setOnClickListener(this);
+        //ListFiles
+        listFiles = (Button) findViewById(R.id.list_file);
+        listFiles.setOnClickListener(this);
         container = (LinearLayout) findViewById(R.id.container_files);
  
         loggedIn(false);
@@ -96,9 +101,11 @@ public class DropboxActivity extends Activity implements OnClickListener {
         isLoggedIn = isLogged;
         uploadFile.setEnabled(isLogged);
         downloadFile.setEnabled(isLogged);
+        //List Files
+        listFiles.setEnabled(isLogged);
         logIn.setText(isLogged ? "Log out" : "Log in");
     }
- 
+    //List functions
     private final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
  
@@ -138,6 +145,11 @@ public class DropboxActivity extends Activity implements OnClickListener {
             UploadFileToDropbox upload = new UploadFileToDropbox(this, dropbox,
                     FILE_DIR);
             upload.execute();
+            break;
+            //List functions
+        case R.id.list_file:
+            ListDropboxFiles fileList = new ListDropboxFiles(dropbox, FILE_DIR, handler);
+            fileList.execute();
             break;
  
         default:
